@@ -1,0 +1,135 @@
+{
+    "students": [
+      {
+        "fName": "John",
+        "lName": "Doe",
+        "studId": "S001",
+        "password": "johndoe123",
+        "Year": 2,
+        "Course": "Computer Science",
+        "grades": {
+          "Math": 81,
+          "Programming": 99,
+          "Physics": 75
+        }
+      },
+      {
+        "fName": "Alice",
+        "lName": "Smith",
+        "studId": "S002",
+        "password": "alicesmith456",
+        "Year": 3,
+        "Course": "Electrical Engineering",
+        "grades": {
+          "Math": 90,
+          "Programming": 88,
+          "Chemistry": 78
+        }
+      },
+      {
+        "fName": "Bob",
+        "lName": "Johnson",
+        "studId": "S003",
+        "password": "bobjohnson789",
+        "Year": 1,
+        "Course": "Mechanical Engineering",
+        "grades": {
+          "Math": 70,
+          "Programming": 92,
+          "Mechanics": 85
+        }
+      },
+      {
+        "fName": "Emily",
+        "lName": "Wilson",
+        "studId": "S004",
+        "password": "emilywilson123",
+        "Year": 2,
+        "Course": "Biology",
+        "grades": {
+          "Biology": 88,
+          "Chemistry": 95,
+          "Physics": 79
+        }
+      },
+      {
+        "fName": "David",
+        "lName": "Brown",
+        "studId": "S005",
+        "password": "davidbrown456",
+        "Year": 4,
+        "Course": "Mathematics",
+        "grades": {
+          "Math": 94,
+          "Statistics": 89,
+          "Programming": 91
+        }
+      },
+      {
+        "fName": "Ella",
+        "lName": "Davis",
+        "studId": "S006",
+        "password": "elladavis789",
+        "Year": 3,
+        "Course": "Physics",
+        "grades": {
+          "Physics": 87,
+          "Math": 82,
+          "Programming": 96
+        }
+      },
+      {
+        "fName": "George",
+        "lName": "Clark",
+        "studId": "S007",
+        "password": "georgeclark123",
+        "Year": 2,
+        "Course": "Chemistry",
+        "grades": {
+          "Chemistry": 78,
+          "Biology": 85,
+          "Math": 89
+        }
+      },
+      {
+        "fName": "Hannah",
+        "lName": "Evans",
+        "studId": "S008",
+        "password": "hannahevans456",
+        "Year": 1,
+        "Course": "Computer Science",
+        "grades": {
+          "Programming": 93,
+          "Math": 86,
+          "Data Structures": 90
+        }
+      },
+      {
+        "fName": "Jacob",
+        "lName": "Miller",
+        "studId": "S009",
+        "password": "jacobmiller789",
+        "Year": 3,
+        "Course": "Electrical Engineering",
+        "grades": {
+          "Circuit Analysis": 88,
+          "Digital Signal Processing": 92,
+          "Math": 84
+        }
+      },
+      {
+        "fName": "Olivia",
+        "lName": "Moore",
+        "studId": "S010",
+        "password": "oliviamoore123",
+        "Year": 4,
+        "Course": "Mechanical Engineering",
+        "grades": {
+          "Mechanics": 85,
+          "Thermodynamics": 91,
+          "Materials Science": 79
+        }
+      }
+    ]
+  }
+  
