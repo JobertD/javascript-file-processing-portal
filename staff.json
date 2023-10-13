@@ -1,0 +1,60 @@
+{
+    "staff": [
+      {
+        "fName": "Alice",
+        "lName": "Smith",
+        "staffId": "T002",
+        "password": "password123",
+        "Department": "Computer Science",
+        "Classes": [
+          "9371",
+          "9372"
+        ]
+      },
+      {
+        "fName": "John",
+        "lName": "Doe",
+        "staffId": "T003",
+        "password": "securepass",
+        "Department": "Computer Science",
+        "Classes": [
+          "9373",
+          "9374"
+        ]
+      },
+      {
+        "fName": "Ella",
+        "lName": "Johnson",
+        "staffId": "T004",
+        "password": "letmein",
+        "Department": "Computer Science",
+        "Classes": [
+          "9375",
+          "9376"
+        ]
+      },
+      {
+        "fName": "Robert",
+        "lName": "Wilson",
+        "staffId": "T005",
+        "password": "p@ssw0rd",
+        "Department": "Computer Science",
+        "Classes": [
+          "9377",
+          "9378"
+        ]
+      },
+      {
+        "fName": "Sophia",
+        "lName": "Brown",
+        "staffId": "T006",
+        "password": "access123",
+        "Department": "Computer Science",
+        "Classes": [
+          "9379",
+          "9380"
+        ]
+      }
+    ]
+  }
+  
