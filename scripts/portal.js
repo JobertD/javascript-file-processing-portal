@@ -80,36 +80,67 @@ manageGradesLink.addEventListener("click", function() {
             if (student.classCode === selectedClassCode) {
                 const newRow = tbody.insertRow(-1);
                 const cell1 = newRow.insertCell(0);
-                const fullName = `${student.fName} ${student.lName}`;
+                const fullName = `${student.lName}, ${student.fName}`;
                 cell1.textContent = fullName;
 
                 // Add cells with input forms for grades.
-                // TODO: ADD EVENT HANDLERS:
                 const cell2 = newRow.insertCell(1);
                 let cell2Input = document.createElement("input");
                 cell2Input.type = "number";
                 cell2Input.min = "65";
                 cell2Input.max = "99";
-                cell2.appendChild(cell2Input);
-                
+                if (student.prelimGrade) {
+                    cell2Input.value = student.prelimGrade;
+                }
+
                 const cell3 = newRow.insertCell(2);
                 let cell3Input = document.createElement("input");
                 cell3Input.type = "number";
                 cell3Input.min = "65";
                 cell3Input.max = "99";
-                cell3.appendChild(cell3Input);
+                if (student.midtermGrade) {
+                    cell3Input.value = student.midtermGrade;
+                }
 
                 const cell4 = newRow.insertCell(3);
                 let cell4Input = document.createElement("input");
                 cell4Input.type = "number";
                 cell4Input.min = "65";
                 cell4Input.max = "99";
-                cell4.appendChild(cell4Input);
+                if (student.finalGrade) {
+                    cell4Input.value = student.finalGrade;
+                }
 
                 const cell5 = newRow.insertCell(4);
+                if (student.final) {
+                    cell5.textContent = student.final;
+                }
 
+                function cellInputHandler(event) {
+                    let prelimGrade = Number(cell2Input.value);
+                    let midtermGrade = Number(cell3Input.value);
+                    let finalGrade = Number(cell4Input.value);
 
+                    if ((prelimGrade !== "" && prelimGrade >= 65 && prelimGrade <= 99) &&
+                    (midtermGrade !== "" && midtermGrade >= 65 && midtermGrade <= 99) &&
+                    (finalGrade !== "" && finalGrade >= 65 && finalGrade <= 99)) {
+                        //TODO: VERIFY FORMULA FOR FINAL GRADE
+                        let final = Math.floor((prelimGrade + midtermGrade + finalGrade) / 3);
+                        student.prelimGrade = prelimGrade;
+                        student.midtermGrade = midtermGrade;
+                        student.finalGrade = finalGrade;
+                        student.final = final;
+                        cell5.textContent = final;
+                    }
+                }
 
+                cell2Input.addEventListener("change", cellInputHandler);
+                cell3Input.addEventListener("change", cellInputHandler);
+                cell4Input.addEventListener("change", cellInputHandler);
+
+                cell2.appendChild(cell2Input);
+                cell3.appendChild(cell3Input);
+                cell4.appendChild(cell4Input);
             }
         }
 });
