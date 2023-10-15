@@ -7,6 +7,7 @@ let dropDown = document.querySelector("select");
 let studentTable = document.querySelector("#student-table");
 let staffClassCodeList = JSON.parse(localStorage.getItem(`${id}ClassCodes`));
 let allClassCodeList = JSON.parse(localStorage.getItem("classCodes"));
+let studentData = JSON.parse(localStorage.getItem("studentData"));
 
 
 // Add in welcome text with the user's name.
@@ -72,6 +73,17 @@ dropDown.addEventListener("change", function () {
         tbody.removeChild(tbody.firstChild);
     }
 
+    for (const student of studentData) {
+        if (student.classCode === selectedClassCode) {
+            const newRow = tbody.insertRow(-1);
+            const cell1 = newRow.insertCell(0);
+            const fullName = `${student.fName} ${student.lName}`;
+            cell1.textContent = fullName;
+        }
+    }
+
+
+    /*
     // Fetch student data based on the selected class code and update the table
     fetch("/data/students.json") // Replace with the actual path to your students JSON file
         .then(response => response.json())
@@ -89,4 +101,5 @@ dropDown.addEventListener("change", function () {
         .catch(error => {
             console.log("Error loading student data: ", error);
         });
+    */
 });

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Load and parse the JSON file containing staff data
+    // Load and parse the JSON file containing all class codes.
     fetch("/data/classCodes.json")
     .then((response) => response.json())
     .then((data) => {
@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.log("Failed to parse classCodes.json: ", error);
     });
+
+    // Load and parse the JSON file containing staff data
     fetch("/data/staff.json")
       .then((response) => response.json())
       .then((data) => {
@@ -53,5 +55,19 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => {
         console.error("Error loading staff data:", error);
       });
+
+    // Load and parse the JSON file containing all student data,
+    // but only if it does not exist in local storage yet.
+    if (!localStorage.getItem("studentData")) {
+      fetch("/data/students.json")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Parsing students.json");
+        localStorage.setItem("studentData", JSON.stringify(data.students));
+      })
+      .catch((error) => {
+        console.log("Failed to parse classCodes.json: ", error);
+      })
+  }
   });
   
