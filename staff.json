@@ -8,7 +8,8 @@
         "Department": "Computer Science",
         "Classes": [
           "9371",
-          "9372"
+          "9372",
+          "9373"
         ]
       },
       {
@@ -18,8 +19,9 @@
         "password": "securepass",
         "Department": "Computer Science",
         "Classes": [
-          "9373",
-          "9374"
+          "9374",
+          "9375",
+          "9376"
         ]
       },
       {
@@ -29,8 +31,9 @@
         "password": "letmein",
         "Department": "Computer Science",
         "Classes": [
-          "9375",
-          "9376"
+          "9377",
+          "9378",
+          "9379"
         ]
       },
       {
@@ -40,8 +43,9 @@
         "password": "p@ssw0rd",
         "Department": "Computer Science",
         "Classes": [
-          "9377",
-          "9378"
+          "9380",
+          "9381",
+          "9382"
         ]
       },
       {
@@ -51,8 +55,9 @@
         "password": "access123",
         "Department": "Computer Science",
         "Classes": [
-          "9379",
-          "9380"
+          "9383",
+          "9384",
+          "9385"
         ]
       }
     ]

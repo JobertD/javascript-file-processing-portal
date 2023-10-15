@@ -1,0 +1,21 @@
+{
+    "codes": [
+        {
+            "9371":"Math",
+            "9372":"Programming",
+            "9373":"Physics",
+            "9374":"Chemistry",
+            "9375":"Mechanics",
+            "9376":"Biology",
+            "9377":"Statistics",
+            "9378":"Data Structures",
+            "9379":"Circuit Analysis",
+            "9380":"Digital Signal Processing",
+            "9381":"Thermodynamics",
+            "9382":"Materials Science",
+            "9383":"Artificial Intelligence",
+            "9384":"UI/UX Design",
+            "9385":"Database"
+        }
+    ]
+}
