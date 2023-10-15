@@ -13,33 +13,21 @@ header, footer {
     text-align: center;
     padding: 5px;
 }
-/*
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+
+.title-box {
+    background-color: #0f2433;
+    display: inline-block; /* Make it inline with the text */
+    padding: 10px;
+    border-radius: 5px; /* Add rounded corners */
+    margin: 10px;
 }
 
-nav li {
-    display: inline;
-    margin-right: 10px;
-}
-
-nav a {
-    text-decoration: none;
+.title-box h1 {
+    margin: 10px; /* Remove default margin for h1 */
     color: #fff;
+    font-weight: bold;
+    font-size: 24px; /* Adjust the font size as needed */
 }
-
-.class-code-dropdown {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%; /* Full width for better user experience 
-}
-
-*/
 
 /* Updated CSS for the navigation bar and buttons */
 nav {
@@ -50,6 +38,7 @@ nav {
 }
 
 nav ul {
+    border-radius: 20px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -85,7 +74,7 @@ nav a.selected {
 
 #content {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
     overflow: auto;
     text-align: left;
 }
