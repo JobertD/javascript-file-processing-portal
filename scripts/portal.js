@@ -2,10 +2,12 @@ let loggedInText = document.querySelector("p.logged-in-as-text");
 let logOutLi = document.querySelector("li#log-out-li");
 let manageGradesLink = document.querySelector("a#grades");
 let settingsLink = document.querySelector("a#settings");
-let dropDown = document.querySelector("select");
-let studentTable = document.querySelector("#student-table");
+let manageStudentsLink = document.querySelector("a#students");
+let dropDownClassGrades = document.querySelector("section#manage-grades-content select");
+let dropDownClassStudents = document.querySelector("section#manage-students-content select");
 let settingsSection = document.querySelector("section#settings");
 let manageGradesSection = document.querySelector("section#manage-grades-content");
+let manageStudentsSection = document.querySelector("section#manage-students-content");
 
 
 
@@ -33,25 +35,43 @@ logOutLi.addEventListener("click", function () {
 
 // Fetch class codes and staff data concurrently
 for (const code of staffClassCodeList) {
-    let option = document.createElement("option");
-    option.value = code;
-    option.textContent = `${code}: ${allClassCodeList[code]}`;
-    dropDown.appendChild(option);
-    console.log(`Adding ${code} to dropdown`);
+let option = document.createElement("option");
+option.value = code;
+option.textContent = `${code}: ${allClassCodeList[code]}`;
+dropDownClassStudents.appendChild(option);
+console.log(`Adding ${code} to dropdown`);
 }
+
+for (const code of staffClassCodeList) {
+let option = document.createElement("option");
+option.value = code;
+option.textContent = `${code}: ${allClassCodeList[code]}`;
+dropDownClassGrades.appendChild(option);
+console.log(`Adding ${code} to dropdown`);
+}
+
+// Event when in the Manage Students page.
+manageStudentsLink.addEventListener("click", function() {
+    // Hide the other sections.
+    manageStudentsSection.style.display = "block";
+    manageGradesSection.style.display = "none";
+    settingsSection.style.display = "none";
+
+});
   
 // Event when in the Manage Grades page.
 manageGradesLink.addEventListener("click", function() {
     // Hide the other sections.
     manageGradesSection.style.display = "block";
+    manageStudentsSection.style.display = "none";
     settingsSection.style.display = "none";
 
     // Event listener for dropdown selection
-    dropDown.addEventListener("change", function () {
-        const selectedClassCode = dropDown.value;
+    dropDownClassGrades.addEventListener("change", function () {
+        const selectedClassCode = dropDownClassGrades.value;
         
         // Clear existing table rows
-        const tbody = document.querySelector("#student-table tbody");
+        const tbody = document.querySelector("section#manage-grades-content .student-table tbody");
         while (tbody.hasChildNodes()) {
             tbody.removeChild(tbody.firstChild);
         }
@@ -62,6 +82,34 @@ manageGradesLink.addEventListener("click", function() {
                 const cell1 = newRow.insertCell(0);
                 const fullName = `${student.fName} ${student.lName}`;
                 cell1.textContent = fullName;
+
+                // Add cells with input forms for grades.
+                // TODO: ADD EVENT HANDLERS:
+                const cell2 = newRow.insertCell(1);
+                let cell2Input = document.createElement("input");
+                cell2Input.type = "number";
+                cell2Input.min = "65";
+                cell2Input.max = "99";
+                cell2.appendChild(cell2Input);
+                
+                const cell3 = newRow.insertCell(2);
+                let cell3Input = document.createElement("input");
+                cell3Input.type = "number";
+                cell3Input.min = "65";
+                cell3Input.max = "99";
+                cell3.appendChild(cell3Input);
+
+                const cell4 = newRow.insertCell(3);
+                let cell4Input = document.createElement("input");
+                cell4Input.type = "number";
+                cell4Input.min = "65";
+                cell4Input.max = "99";
+                cell4.appendChild(cell4Input);
+
+                const cell5 = newRow.insertCell(4);
+
+
+
             }
         }
 });
@@ -70,7 +118,7 @@ manageGradesLink.addEventListener("click", function() {
 
 
 
-  // Event listener for settings dropdown
+// Event listener for settings dropdown
   const settingsDropdown = document.querySelector("#settings-dropdown");
   const settingsButton = document.querySelector("#settings-button");
 
@@ -88,6 +136,7 @@ manageGradesLink.addEventListener("click", function() {
   
 settingsLink.addEventListener("click", function() {
     manageGradesSection.style.display = "none";
+    manageStudentsSection.style.display = "none";
     settingsSection.style.display = "block";
 });
 

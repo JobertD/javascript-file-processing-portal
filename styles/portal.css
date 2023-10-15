@@ -72,21 +72,21 @@ nav a.selected {
     background-color: #215c86; /* Change background color for the selected page */  
 }
 
-#manage-grades-content, #settings {
+#manage-students-content, #manage-grades-content, #settings {
     flex: 1;
     padding: 15px;
     overflow: auto;
     text-align: left;
 }
 
-#student-table {
+.student-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 }
 
 
-#student-table th {
+.student-table th {
     background-color: #333;
     color: #fff;
     font-weight: bold;
@@ -94,21 +94,21 @@ nav a.selected {
     padding: 10px;
 }
 
-#student-table tbody tr:nth-child(even) {
+.student-table tbody tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-#student-table tbody tr:nth-child(odd) {
+.student-table tbody tr:nth-child(odd) {
     background-color: #fff;
 }
 
-#student-table td {
+.student-table td {
     padding: 8px;
     border: 1px solid #ccc;
 }
 
 /* Hover effect on table rows */
-#student-table tbody tr:hover {
+.student-table tbody tr:hover {
     background-color: #ddd;
 }
 
