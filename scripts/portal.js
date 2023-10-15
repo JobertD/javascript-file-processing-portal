@@ -1,6 +1,7 @@
 
 
 let loggedInText = document.querySelector("p.logged-in-as-text");
+let id = localStorage.getItem("staffId");
 let fName = localStorage.getItem("userFirstName");
 let lName = localStorage.getItem("userLastName");
 let logOutLi = document.querySelector("li#log-out-li");
@@ -18,6 +19,39 @@ logOutLi.addEventListener("click", function () {
 
 
 // Add the list of class codes to the dropdown list.
+Promise.all([
+    fetch(
+        "/data/classCodes.json").then(response => response.json(),
+        "/data/staff.json").then(response => response.json()
+        )
+]).then(([classCodeData, staffData]) => {
+    classCodeList = classCodeData.codes[0];
+    staffList = staffData.staff;
+    console.log("Adding Class code list to drop down...");
+
+    const staff = staffList.staff.find(prof => prof.staffId === id);
+
+    if(staff) {
+        const cCodes = staff.Classes;
+
+    for (const code in classCodeList) {
+        if(cCodes.includes(code)){
+        let option = document.createElement("option");
+        option.value = code;
+        option.textContent = `${code}: ${classCodeList[code]}`;
+        dropDown.appendChild(option);
+        console.log(`Adding ${code} to dropdown`);
+        }
+    }
+    }
+
+}).catch((error) => {
+        console.log("Error loading class codes data: ", error);
+    });
+
+
+
+
 let classCodeList;  
 fetch("/data/classCodes.json")
     .then(response => response.json())
