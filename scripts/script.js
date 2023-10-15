@@ -14,8 +14,15 @@ document.addEventListener("DOMContentLoaded", function () {
   
           // Check if the staff ID and password match any entry in the JSON data
           const faculty = data.staff.find(
-            (staff) => 
-              staff.staffId === staffId && staff.password === password
+            (staff) =>  {
+              if (staff.staffId === staffId && staff.password === password) {
+                // Remember the details for the portal page.
+                localStorage.setItem("userFirstName", staff.fName);
+                localStorage.setItem("userLastName", staff.lName);
+                localStorage.setItem("userId", staffId);
+                return true;
+              }
+            }
           );
   
           if (faculty) {
@@ -23,8 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Login successful!");
             // You can add code to redirect to another page here if needed.
 
-            //Remember the account details and redirect to the page for the portal.
-            localStorage.setItem("userId", staffId);
+            // Redirect to the page.
             location.replace("/pages/portal.html");
 
 
