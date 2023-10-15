@@ -130,3 +130,32 @@ footer {
 .class-code-dropdown:hover {
     background-color: #ddd;
 }
+
+/* Dropdown styles for settings */
+.settings-dropdown {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#settings-dropdown {
+    min-width: 200px;
+    margin-right: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#settings-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#settings-button:hover {
+    background-color: #2c7eb8;
+}
