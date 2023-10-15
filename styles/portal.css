@@ -8,10 +8,10 @@ body {
 }
 
 header, footer {
-    background-color: #3498db;
+    background-color: #16415e;
     color: #fff;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
 }
 /*
 nav ul {
@@ -80,15 +80,14 @@ nav a:hover {
 
 /* Additional styles for the selected page (optional) */
 nav a.selected {
-    background-color: #2c7eb8; /* Change background color for the selected page */
+    background-color: #215c86; /* Change background color for the selected page */  
 }
-
 
 #content {
     flex: 1;
     padding: 20px;
     overflow: auto;
-    text-align: center;
+    text-align: left;
 }
 
 footer {
