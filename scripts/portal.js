@@ -20,6 +20,9 @@ logOutLi.addEventListener("click", function () {
     localStorage.removeItem("staffId"); // Change "userId" to "staffId"
     localStorage.removeItem("${id}ClassCodes");
     localStorage.removeItem("classCodes");
+
+    // Save current state of student data to local storage.
+    localStorage.setItem("studentData", JSON.stringify(studentData));
 });
 
 // Fetch class codes and staff data concurrently
