@@ -4,7 +4,7 @@ let fName = localStorage.getItem("userFirstName");
 let lName = localStorage.getItem("userLastName");
 let logOutLi = document.querySelector("li#log-out-li");
 let dropDown = document.querySelector("select");
-let studentTable = document.querySelector("#student-table"); // Assuming you have a table element with the id "student-table"
+let studentTable = document.querySelector("#student-table");
 
 // Add in welcome text with the user's name.
 loggedInText.textContent = `Welcome, ${fName} ${lName}!`;
@@ -69,6 +69,7 @@ dropDown.addEventListener("change", function () {
                     cell1.textContent = fullName;
                 }
             });
+            
         })
         .catch(error => {
             console.log("Error loading student data: ", error);
