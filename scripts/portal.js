@@ -106,3 +106,20 @@ dropDown.addEventListener("change", function () {
         });
     */
 });
+
+  // Event listener for settings dropdown
+  const settingsDropdown = document.querySelector("#settings-dropdown");
+  const settingsButton = document.querySelector("#settings-button");
+
+  settingsButton.addEventListener("click", function () {
+      const selectedOption = settingsDropdown.value;
+
+      if (selectedOption === "profile") {
+          // Handle profile change logic (e.g., navigate to profile change page)
+          alert("Changing Profile...");
+      } else if (selectedOption === "password") {
+          // Handle password change logic (e.g., navigate to password change page)
+          alert("Changing Password...");
+      }
+  });
+  
