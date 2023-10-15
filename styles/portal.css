@@ -7,13 +7,13 @@ body {
     height: 100vh;
 }
 
-header, nav, footer {
+header, footer {
     background-color: #3498db;
     color: #fff;
     text-align: center;
     padding: 10px;
 }
-
+/*
 nav ul {
     list-style-type: none;
     margin: 0;
@@ -36,8 +36,53 @@ nav a {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    width: 100%; /* Full width for better user experience */
+    width: 100%; /* Full width for better user experience 
 }
+
+*/
+
+/* Updated CSS for the navigation bar and buttons */
+nav {
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Center-align the navigation items */
+}
+
+nav li {
+    margin: 0 10px; /* Add spacing between navigation items */
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold; /* Make the text bold */
+    padding: 10px 20px; /* Increase button padding */
+    border-radius: 5px; /* Add rounded corners for a button-like appearance */
+    transition: background-color 0.3s; /* Add smooth hover transition */
+}
+
+nav a:hover {
+    background-color: #2c7eb8; /* Change background color on hover */
+}
+
+#log-out-li {
+    margin-left: auto; /* Push the Log Out button to the right */
+}
+
+/* Additional styles for the selected page (optional) */
+nav a.selected {
+    background-color: #2c7eb8; /* Change background color for the selected page */
+}
+
 
 #content {
     flex: 1;
