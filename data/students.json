@@ -1,135 +1,379 @@
 {
-    "students": [
-      {
-        "fName": "John",
-        "lName": "Doe",
-        "studId": "S001",
-        "password": "johndoe123",
-        "Year": 2,
-        "Course": "Computer Science",
-        "grades": {
-          "Math": 81,
-          "Programming": 99,
-          "Physics": 75
-        }
-      },
-      {
-        "fName": "Alice",
-        "lName": "Smith",
-        "studId": "S002",
-        "password": "alicesmith456",
-        "Year": 3,
-        "Course": "Electrical Engineering",
-        "grades": {
-          "Math": 90,
-          "Programming": 88,
-          "Chemistry": 78
-        }
-      },
-      {
-        "fName": "Bob",
-        "lName": "Johnson",
-        "studId": "S003",
-        "password": "bobjohnson789",
-        "Year": 1,
-        "Course": "Mechanical Engineering",
-        "grades": {
-          "Math": 70,
-          "Programming": 92,
-          "Mechanics": 85
-        }
-      },
-      {
-        "fName": "Emily",
-        "lName": "Wilson",
-        "studId": "S004",
-        "password": "emilywilson123",
-        "Year": 2,
-        "Course": "Biology",
-        "grades": {
-          "Biology": 88,
-          "Chemistry": 95,
-          "Physics": 79
-        }
-      },
-      {
-        "fName": "David",
-        "lName": "Brown",
-        "studId": "S005",
-        "password": "davidbrown456",
-        "Year": 4,
-        "Course": "Mathematics",
-        "grades": {
-          "Math": 94,
-          "Statistics": 89,
-          "Programming": 91
-        }
-      },
-      {
-        "fName": "Ella",
-        "lName": "Davis",
-        "studId": "S006",
-        "password": "elladavis789",
-        "Year": 3,
-        "Course": "Physics",
-        "grades": {
-          "Physics": 87,
-          "Math": 82,
-          "Programming": 96
-        }
-      },
-      {
-        "fName": "George",
-        "lName": "Clark",
-        "studId": "S007",
-        "password": "georgeclark123",
-        "Year": 2,
-        "Course": "Chemistry",
-        "grades": {
-          "Chemistry": 78,
-          "Biology": 85,
-          "Math": 89
-        }
-      },
-      {
-        "fName": "Hannah",
-        "lName": "Evans",
-        "studId": "S008",
-        "password": "hannahevans456",
-        "Year": 1,
-        "Course": "Computer Science",
-        "grades": {
-          "Programming": 93,
-          "Math": 86,
-          "Data Structures": 90
-        }
-      },
-      {
-        "fName": "Jacob",
-        "lName": "Miller",
-        "studId": "S009",
-        "password": "jacobmiller789",
-        "Year": 3,
-        "Course": "Electrical Engineering",
-        "grades": {
-          "Circuit Analysis": 88,
-          "Digital Signal Processing": 92,
-          "Math": 84
-        }
-      },
-      {
-        "fName": "Olivia",
-        "lName": "Moore",
-        "studId": "S010",
-        "password": "oliviamoore123",
-        "Year": 4,
-        "Course": "Mechanical Engineering",
-        "grades": {
-          "Mechanics": 85,
-          "Thermodynamics": 91,
-          "Materials Science": 79
-        }
-      }
-    ]
-  }
-  
+  "students": [
+    {
+      "fName": "John",
+      "lName": "Smith",
+      "classCode": "9371"
+    },
+    {
+      "fName": "Jane",
+      "lName": "Doe",
+      "classCode": "9371"
+    },
+    {
+      "fName": "Michael",
+      "lName": "Johnson",
+      "classCode": "9371"
+    },
+    {
+      "fName": "Sarah",
+      "lName": "Brown",
+      "classCode": "9371"
+    },
+    {
+      "fName": "David",
+      "lName": "Wilson",
+      "classCode": "9371"
+    },
+    {
+      "fName": "Olivia",
+      "lName": "Davis",
+      "classCode": "9372"
+    },
+    {
+      "fName": "James",
+      "lName": "Clark",
+      "classCode": "9372"
+    },
+    {
+      "fName": "Sophia",
+      "lName": "Moore",
+      "classCode": "9372"
+    },
+    {
+      "fName": "Emily",
+      "lName": "Lee",
+      "classCode": "9372"
+    },
+    {
+      "fName": "William",
+      "lName": "Jones",
+      "classCode": "9372"
+    },
+    {
+      "fName": "Alice",
+      "lName": "Taylor",
+      "classCode": "9373"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Brown",
+      "classCode": "9373"
+    },
+    {
+      "fName": "Robert",
+      "lName": "Davis",
+      "classCode": "9373"
+    },
+    {
+      "fName": "John",
+      "lName": "Smith",
+      "classCode": "9373"
+    },
+    {
+      "fName": "Sophia",
+      "lName": "Johnson",
+      "classCode": "9373"
+    },
+    {
+      "fName": "David",
+      "lName": "Smith",
+      "classCode": "9374"
+    },
+    {
+      "fName": "Jane",
+      "lName": "Taylor",
+      "classCode": "9374"
+    },
+    {
+      "fName": "Michael",
+      "lName": "Brown",
+      "classCode": "9374"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Davis",
+      "classCode": "9374"
+    },
+    {
+      "fName": "Olivia",
+      "lName": "Smith",
+      "classCode": "9374"
+    },
+    {
+      "fName": "William",
+      "lName": "Brown",
+      "classCode": "9375"
+    },
+    {
+      "fName": "James",
+      "lName": "Johnson",
+      "classCode": "9375"
+    },
+    {
+      "fName": "Sarah",
+      "lName": "Moore",
+      "classCode": "9375"
+    },
+    {
+      "fName": "Alice",
+      "lName": "Wilson",
+      "classCode": "9375"
+    },
+    {
+      "fName": "Sophia",
+      "lName": "Jones",
+      "classCode": "9375"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Doe",
+      "classCode": "9376"
+    },
+    {
+      "fName": "John",
+      "lName": "Smith",
+      "classCode": "9376"
+    },
+    {
+      "fName": "Michael",
+      "lName": "Johnson",
+      "classCode": "9376"
+    },
+    {
+      "fName": "Robert",
+      "lName": "Brown",
+      "classCode": "9376"
+    },
+    {
+      "fName": "Emily",
+      "lName": "Davis",
+      "classCode": "9376"
+    },
+    {
+      "fName": "Sophia",
+      "lName": "Smith",
+      "classCode": "9377"
+    },
+    {
+      "fName": "David",
+      "lName": "Taylor",
+      "classCode": "9377"
+    },
+    {
+      "fName": "Jane",
+      "lName": "Brown",
+      "classCode": "9377"
+    },
+    {
+      "fName": "Sarah",
+      "lName": "Doe",
+      "classCode": "9377"
+    },
+    {
+      "fName": "William",
+      "lName": "Jones",
+      "classCode": "9377"
+    },
+    {
+      "fName": "James",
+      "lName": "Johnson",
+      "classCode": "9378"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Smith",
+      "classCode": "9378"
+    },
+    {
+      "fName": "Michael",
+      "lName": "Brown",
+      "classCode": "9378"
+    },
+    {
+      "fName": "Alice",
+      "lName": "Moore",
+      "classCode": "9378"
+    },
+    {
+      "fName": "Sophia",
+      "lName": "Doe",
+      "classCode": "9378"
+    },
+    {
+      "fName": "Olivia",
+      "lName": "Smith",
+      "classCode": "9379"
+    },
+    {
+      "fName": "John",
+      "lName": "Brown",
+      "classCode": "9379"
+    },
+    {
+      "fName": "David",
+      "lName": "Johnson",
+      "classCode": "9379"
+    },
+    {
+      "fName": "Jane",
+      "lName": "Wilson",
+      "classCode": "9379"
+    },
+    {
+      "fName": "Robert",
+      "lName": "Davis",
+      "classCode": "9379"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Smith",
+      "classCode": "9380"
+    },
+    {
+      "fName": "William",
+      "lName": "Jones",
+      "classCode": "9380"
+    },
+    {
+      "fName": "Michael",
+      "lName": "Brown",
+      "classCode": "9380"
+    },
+    {
+      "fName": "David",
+      "lName": "Smith",
+      "classCode": "9380"
+    },
+    {
+      "fName": "Olivia",
+      "lName": "Taylor",
+      "classCode": "9380"
+    },
+    {
+      "fName": "Robert",
+      "lName": "Brown",
+      "classCode": "9381"
+    },
+    {
+      "fName": "James",
+      "lName": "Doe",
+      "classCode": "9381"
+    },
+    {
+      "fName": "Alice",
+      "lName": "Johnson",
+      "classCode": "9381"
+    },
+    {
+      "fName": "Sophia",
+      "lName": "Smith",
+      "classCode": "9381"
+    },
+    {
+      "fName": "John",
+      "lName": "Brown",
+      "classCode": "9381"
+    },
+    {
+      "fName": "Michael",
+      "lName": "Doe",
+      "classCode": "9382"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Smith",
+      "classCode": "9382"
+    },
+    {
+      "fName": "David",
+      "lName": "Brown",
+      "classCode": "9382"
+    },
+    {
+      "fName": "Jane",
+      "lName": "Moore",
+      "classCode": "9382"
+    },
+    {
+      "fName": "William",
+      "lName": "Smith",
+      "classCode": "9382"
+    },
+    {
+      "fName": "Sarah",
+      "lName": "Johnson",
+      "classCode": "9383"
+    },
+    {
+      "fName": "Olivia",
+      "lName": "Brown",
+      "classCode": "9383"
+    },
+    {
+      "fName": "James",
+      "lName": "Smith",
+      "classCode": "9383"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Doe",
+      "classCode": "9383"
+    },
+    {
+      "fName": "Michael",
+      "lName": "Moore",
+      "classCode": "9383"
+    },
+    {
+      "fName": "Sophia",
+      "lName": "Smith",
+      "classCode": "9384"
+    },
+    {
+      "fName": "John",
+      "lName": "Brown",
+      "classCode": "9384"
+    },
+    {
+      "fName": "David",
+      "lName": "Doe",
+      "classCode": "9384"
+    },
+    {
+      "fName": "Ella",
+      "lName": "Johnson",
+      "classCode": "9384"
+    },
+    {
+      "fName": "Jane",
+      "lName": "Smith",
+      "classCode": "9384"
+    },
+    {
+      "fName": "William",
+      "lName": "Brown",
+      "classCode": "9385"
+    },
+    {
+      "fName": "Robert",
+      "lName": "Doe",
+      "classCode": "9385"
+    },
+    {
+      "fName": "James",
+      "lName": "Smith",
+      "classCode": "9385"
+    },
+    {
+      "fName": "Sarah",
+      "lName": "Johnson",
+      "classCode": "9385"
+    },
+    {
+      "fName": "Alice",
+      "lName": "Brown",
+      "classCode": "9385"
+    }
+  ]
+}
