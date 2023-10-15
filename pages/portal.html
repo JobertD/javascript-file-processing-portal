@@ -18,18 +18,33 @@
     
     <nav>
         <ul>
-            <li><a href="#students">Manage Students</a></li>
-            <li><a href="#grades">Manage Grades</a></li>
+            <li><a id="students" href="#students">Manage Students</a></li>
+            <li><a id="grades" href="#grades">Manage Grades</a></li>
+            <li><a id="settings" href="#settings">Settings</a></li>
             <li id="log-out-li"><a href="index.html">Log Out</a></li>
         </ul>
     </nav>
 
-    <section id="content">
+    <section id="manage-grades-content">
         <h2>Class Code</h2>
         <select class="class-code-dropdown">
             <option selected>Select a class code:</option>
             <!-- Populate this dropdown with data from classCodes.json -->
         </select>
+    <table id="student-table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Prelims</th>
+                <th>Midterms</th>
+                <th>Finals</th>
+                <th>Final Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be added dynamically here -->
+        </tbody>
+    </table>
     </section>
 
     <section id="settings">
@@ -43,16 +58,6 @@
         </div>
     </section>
     
-    <table id="student-table">
-        <thead>
-            <tr>
-                <th>Student Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Table rows will be added dynamically here -->
-        </tbody>
-    </table>
 
     <footer>
         &copy; 2023 Teacher Portal by Frogrammers

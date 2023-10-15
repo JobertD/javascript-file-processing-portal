@@ -72,7 +72,7 @@ nav a.selected {
     background-color: #215c86; /* Change background color for the selected page */  
 }
 
-#content {
+#manage-grades-content, #settings {
     flex: 1;
     padding: 15px;
     overflow: auto;
