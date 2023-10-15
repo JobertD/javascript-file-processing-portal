@@ -134,15 +134,15 @@ manageGradesLink.addEventListener("click", function() {
                     let prelimGrade = Number(cell2Input.value);
                     let midtermGrade = Number(cell3Input.value);
                     let finalGrade = Number(cell4Input.value);
+                    student.prelimGrade = prelimGrade;
+                    student.midtermGrade = midtermGrade;
+                    student.finalGrade = finalGrade;
 
                     if ((prelimGrade !== "" && prelimGrade >= 65 && prelimGrade <= 99) &&
                     (midtermGrade !== "" && midtermGrade >= 65 && midtermGrade <= 99) &&
                     (finalGrade !== "" && finalGrade >= 65 && finalGrade <= 99)) {
                         //TODO: VERIFY FORMULA FOR FINAL GRADE
                         let final = Math.floor((prelimGrade + midtermGrade + finalGrade) / 3);
-                        student.prelimGrade = prelimGrade;
-                        student.midtermGrade = midtermGrade;
-                        student.finalGrade = finalGrade;
                         student.final = final;
                         cell5.textContent = final;
                     }
