@@ -1,5 +1,3 @@
-
-
 let loggedInText = document.querySelector("p.logged-in-as-text");
 let id = localStorage.getItem("staffId");
 let fName = localStorage.getItem("userFirstName");
@@ -14,37 +12,35 @@ logOutLi.addEventListener("click", function () {
     // When the user logs out, remove references of the user's name in localstorage.
     localStorage.removeItem("userFirstName");
     localStorage.removeItem("userLastName");
-    localStorage.removeItem("userId");
+    localStorage.removeItem("staffId"); // Change "userId" to "staffId"
 });
 
-
-// Add the list of class codes to the dropdown list.
+// Fetch class codes and staff data concurrently
 Promise.all([
-    fetch(
-        "/data/classCodes.json").then(response => response.json(),
-        "/data/staff.json").then(response => response.json()
-        )
-]).then(([classCodeData, staffData]) => {
+    fetch("/data/classCodes.json").then(response => response.json()),
+    fetch("/data/staff.json").then(response => response.json())
+])
+.then(([classCodeData, staffData]) => {
     classCodeList = classCodeData.codes[0];
     staffList = staffData.staff;
     console.log("Adding Class code list to drop down...");
 
-    const staff = staffList.staff.find(prof => prof.staffId === id);
+    const staff = staffList.find(prof => prof.userId == id);
 
-    if(staff) {
+    if (staff) {
         const cCodes = staff.Classes;
 
-    for (const code in classCodeList) {
-        if(cCodes.includes(code)){
-        let option = document.createElement("option");
-        option.value = code;
-        option.textContent = `${code}: ${classCodeList[code]}`;
-        dropDown.appendChild(option);
-        console.log(`Adding ${code} to dropdown`);
+        for (const code in classCodeList) {
+            if (cCodes.includes(code)) {
+                let option = document.createElement("option");
+                option.value = code;
+                option.textContent = `${code}: ${classCodeList[code]}`;
+                dropDown.appendChild(option);
+                console.log(`Adding ${code} to dropdown`);
+            }
         }
     }
-    }
-
-}).catch((error) => {
-        console.log("Error loading class codes data: ", error);
-    });
+})
+.catch((error) => {
+    console.log("Error loading class codes or staff data: ", error);
+});
