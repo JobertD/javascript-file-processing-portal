@@ -5,6 +5,9 @@ let lName = localStorage.getItem("userLastName");
 let logOutLi = document.querySelector("li#log-out-li");
 let dropDown = document.querySelector("select");
 let studentTable = document.querySelector("#student-table");
+let staffClassCodeList = JSON.parse(localStorage.getItem(`${id}ClassCodes`));
+let allClassCodeList = JSON.parse(localStorage.getItem("classCodes"));
+
 
 // Add in welcome text with the user's name.
 loggedInText.textContent = `Welcome, ${fName} ${lName}!`;
@@ -14,9 +17,20 @@ logOutLi.addEventListener("click", function () {
     localStorage.removeItem("userFirstName");
     localStorage.removeItem("userLastName");
     localStorage.removeItem("staffId"); // Change "userId" to "staffId"
+    localStorage.removeItem("${id}ClassCodes");
+    localStorage.removeItem("classCodes");
 });
 
 // Fetch class codes and staff data concurrently
+for (const code of staffClassCodeList) {
+    let option = document.createElement("option");
+    option.value = code;
+    option.textContent = `${code}: ${allClassCodeList[code]}`;
+    dropDown.appendChild(option);
+    console.log(`Adding ${code} to dropdown`);
+}
+  
+/*
 Promise.all([
     fetch("/data/classCodes.json").then(response => response.json()),
     fetch("/data/staff.json").then(response => response.json())
@@ -45,6 +59,7 @@ Promise.all([
 .catch((error) => {
     console.log("Error loading class codes or staff data: ", error);
 });
+*/
 
 
 // Event listener for dropdown selection

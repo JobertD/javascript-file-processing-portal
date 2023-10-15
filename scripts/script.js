@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Load and parse the JSON file containing staff data
+    fetch("/data/classCodes.json")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Parsing classCodes.json");
+      localStorage.setItem("classCodes", JSON.stringify(data.codes[0]));
+    })
+    .catch((error) => {
+      console.log("Failed to parse classCodes.json: ", error);
+    });
     fetch("/data/staff.json")
       .then((response) => response.json())
       .then((data) => {
@@ -19,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Remember the details for the portal page.
                 localStorage.setItem("userFirstName", staff.fName);
                 localStorage.setItem("userLastName", staff.lName);
-                localStorage.setItem("userId", staffId);
+                localStorage.setItem("staffId", staffId);
+                localStorage.setItem(`${staffId}ClassCodes`, JSON.stringify(staff.Classes));
                 return true;
               }
             }
