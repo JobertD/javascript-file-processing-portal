@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // You can add code to redirect to another page here if needed.
 
             // Redirect to the page.
-            location.replace("/pages/portal.html");
+            location.assign("/pages/portal.html");
 
 
           } else {
