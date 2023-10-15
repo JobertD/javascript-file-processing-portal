@@ -7,14 +7,7 @@ body {
     height: 100vh;
 }
 
-header {
-    background-color: #3498db;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-}
-
-nav {
+header, nav, footer {
     background-color: #3498db;
     color: #fff;
     text-align: center;
@@ -37,53 +30,37 @@ nav a {
     color: #fff;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropbtn {
+.class-code-dropdown {
     background-color: #3498db;
     color: #fff;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    color: #333;
-}
-
-.dropdown-content a:hover {
-    background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
+    width: 100%; /* Full width for better user experience */
 }
 
 #content {
     flex: 1;
     padding: 20px;
-    overflow: auto; 
+    overflow: auto;
     text-align: center;
 }
 
 footer {
-    background-color: #3498db;
-    color: #fff;
     text-align: center;
-    padding: 10px;
+}
+
+/* Dropdown styles */
+.class-code-dropdown {
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.class-code-dropdown option {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.class-code-dropdown:hover {
+    background-color: #ddd;
 }
