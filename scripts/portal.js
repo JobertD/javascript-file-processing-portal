@@ -1,11 +1,9 @@
 let loggedInText = document.querySelector("p.logged-in-as-text");
 let logOutLi = document.querySelector("li#log-out-li");
 let manageGradesLink = document.querySelector("a#grades");
-let settingsLink = document.querySelector("a#settings");
 let manageStudentsLink = document.querySelector("a#students");
 let dropDownClassGrades = document.querySelector("section#manage-grades-content select");
 let dropDownClassStudents = document.querySelector("section#manage-students-content select");
-let settingsSection = document.querySelector("section#settings");
 let manageGradesSection = document.querySelector("section#manage-grades-content");
 let manageStudentsSection = document.querySelector("section#manage-students-content");
 
@@ -55,7 +53,6 @@ manageStudentsLink.addEventListener("click", function() {
     // Hide the other sections.
     manageStudentsSection.style.display = "block";
     manageGradesSection.style.display = "none";
-    settingsSection.style.display = "none";
 
 });
   
@@ -64,7 +61,6 @@ manageGradesLink.addEventListener("click", function() {
     // Hide the other sections.
     manageGradesSection.style.display = "block";
     manageStudentsSection.style.display = "none";
-    settingsSection.style.display = "none";
 
     // Event listener for dropdown selection
     dropDownClassGrades.addEventListener("change", function () {
@@ -161,26 +157,5 @@ manageGradesLink.addEventListener("click", function() {
 
 
 
-// Event listener for settings dropdown
-  const settingsDropdown = document.querySelector("#settings-dropdown");
-  const settingsButton = document.querySelector("#settings-button");
-
-  settingsButton.addEventListener("click", function () {
-      const selectedOption = settingsDropdown.value;
-
-      if (selectedOption === "profile") {
-          // Handle profile change logic (e.g., navigate to profile change page)
-          alert("Changing Profile...");
-      } else if (selectedOption === "password") {
-          // Handle password change logic (e.g., navigate to password change page)
-          alert("Changing Password...");
-      }
-  });
-  
-settingsLink.addEventListener("click", function() {
-    manageGradesSection.style.display = "none";
-    manageStudentsSection.style.display = "none";
-    settingsSection.style.display = "block";
-});
 
 manageGradesLink.dispatchEvent(new Event("click"));
