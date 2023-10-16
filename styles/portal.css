@@ -72,7 +72,7 @@ nav a.selected {
     background-color: #215c86; /* Change background color for the selected page */  
 }
 
-#manage-students-content, #manage-grades-content{
+#add-students-content, #remove-students-content, #manage-grades-content{
     flex: 1;
     padding: 15px;
     overflow: auto;

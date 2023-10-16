@@ -1,11 +1,13 @@
 let loggedInText = document.querySelector("p.logged-in-as-text");
 let logOutLi = document.querySelector("li#log-out-li");
 let manageGradesLink = document.querySelector("a#grades");
-let manageStudentsLink = document.querySelector("a#students");
 let dropDownClassGrades = document.querySelector("section#manage-grades-content select");
-let dropDownClassStudents = document.querySelector("section#manage-students-content select");
+let dropDownClassRemoveStudents = document.querySelector("section#remove-students-content select");
 let manageGradesSection = document.querySelector("section#manage-grades-content");
-let manageStudentsSection = document.querySelector("section#manage-students-content");
+let removeStudentsSection = document.querySelector("section#remove-students-content");
+let removeStudentsLink = document.querySelector("a#remove-students");
+let addStudentsSection = document.querySelector("section#add-students-content");
+let addStudentsLink = document.querySelector("a#add-students");
 
 
 
@@ -36,7 +38,7 @@ for (const code of staffClassCodeList) {
 let option = document.createElement("option");
 option.value = code;
 option.textContent = `${code}: ${allClassCodeList[code]}`;
-dropDownClassStudents.appendChild(option);
+dropDownClassRemoveStudents.appendChild(option);
 console.log(`Adding ${code} to dropdown`);
 }
 
@@ -48,19 +50,20 @@ dropDownClassGrades.appendChild(option);
 console.log(`Adding ${code} to dropdown`);
 }
 
-// Event when in the Manage Students page.
-manageStudentsLink.addEventListener("click", function() {
+// Event when in the Remove Students page.
+removeStudentsLink.addEventListener("click", function() {
     // Hide the other sections.
-    manageStudentsSection.style.display = "block";
+    removeStudentsSection.style.display = "block";
+    addStudentsSection.style.display = "none";
     manageGradesSection.style.display = "none";
 
 
     // Event listener for dropdown selection
-    dropDownClassStudents.addEventListener("change", function() {
-        const selectedClassCode = dropDownClassStudents.value;
+    dropDownClassRemoveStudents.addEventListener("change", function() {
+        const selectedClassCode = dropDownClassRemoveStudents.value;
 
         // Clear existing table rows
-        const tbody = document.querySelector("section#manage-students-content .student-table tbody");
+        const tbody = document.querySelector("section#remove-students-content .student-table tbody");
         while (tbody.hasChildNodes()) {
             tbody.removeChild(tbody.firstChild);
         }
@@ -79,12 +82,18 @@ manageStudentsLink.addEventListener("click", function() {
         });
         console.log(students);
 
+        // TODO: ADD CODE FOR ADDITION AND DELETION OF STUDENTS IN STUDENT DATA.
         // Set the cells for each student row and give them the grades if they are already set.
         for (const student of students) {
                 const newRow = tbody.insertRow(-1);
                 const cell1 = newRow.insertCell(0);
                 const fullName = `${student.lName}, ${student.fName}`;
                 cell1.textContent = fullName;
+
+                const cell2 = newRow.insertCell(1);
+                let cell2Input = document.createElement("input");
+                cell2Input.type= "checkbox";
+                cell2.appendChild(cell2Input);
         }
 
     });
@@ -95,7 +104,8 @@ manageStudentsLink.addEventListener("click", function() {
 manageGradesLink.addEventListener("click", function() {
     // Hide the other sections.
     manageGradesSection.style.display = "block";
-    manageStudentsSection.style.display = "none";
+    addStudentsSection.style.display = "none";
+    removeStudentsSection.style.display = "none";
 
     // Event listener for dropdown selection
     dropDownClassGrades.addEventListener("change", function () {

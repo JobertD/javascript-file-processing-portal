@@ -18,22 +18,45 @@
     
     <nav>
         <ul>
-            <li><a id="students" href="#students">Manage Students</a></li>
+            <li><a id="add-students" href="#add-students">Add Students</a></li>
+            <li><a id="remove-students" href="#remove-students">Remove Students</a></li>
             <li><a id="grades" href="#grades">Manage Grades</a></li>
             <li id="log-out-li"><a href="index.html">Log Out</a></li>
         </ul>
     </nav>
 
-    <section id="manage-students-content">
+    <section id="add-students-content">
         <h2>Class Code</h2>
         <select class="class-code-dropdown">
             <option disabled selected>Select a class code:</option>
             <!-- Populate this dropdown with data from classCodes.json -->
         </select>
+        <button>Add Students</button>
     <table class="student-table">
         <thead>
             <tr>
                 <th>Student Name</th>
+                <th>Select</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be added dynamically here -->
+        </tbody>
+    </table>
+        </section>
+
+    <section id="remove-students-content">
+        <h2>Class Code</h2>
+        <select class="class-code-dropdown">
+            <option disabled selected>Select a class code:</option>
+            <!-- Populate this dropdown with data from classCodes.json -->
+        </select>
+        <button>Remove Students</button>
+    <table class="student-table">
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Select</th>
             </tr>
         </thead>
         <tbody>
