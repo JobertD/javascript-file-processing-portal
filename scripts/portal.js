@@ -54,6 +54,41 @@ manageStudentsLink.addEventListener("click", function() {
     manageStudentsSection.style.display = "block";
     manageGradesSection.style.display = "none";
 
+
+    // Event listener for dropdown selection
+    dropDownClassStudents.addEventListener("change", function() {
+        const selectedClassCode = dropDownClassStudents.value;
+
+        // Clear existing table rows
+        const tbody = document.querySelector("section#manage-students-content .student-table tbody");
+        while (tbody.hasChildNodes()) {
+            tbody.removeChild(tbody.firstChild);
+        }
+
+        // Create an array of students and sort them via alphabetical order.
+        let students = [];
+        for (const student of studentData) {
+            if (student.classCode === selectedClassCode) {
+                students.push(student);
+            }
+        }
+        students.sort((a, b) => {
+            let fullName1 = `${a.lName}, ${a.fName}`;
+            let fullName2 = `${b.lName}, ${b.fName}`;
+            return fullName1.localeCompare(fullName2);
+        });
+        console.log(students);
+
+        // Set the cells for each student row and give them the grades if they are already set.
+        for (const student of students) {
+                const newRow = tbody.insertRow(-1);
+                const cell1 = newRow.insertCell(0);
+                const fullName = `${student.lName}, ${student.fName}`;
+                cell1.textContent = fullName;
+        }
+
+    });
+
 });
   
 // Event when in the Manage Grades page.
