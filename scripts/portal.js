@@ -33,7 +33,7 @@ logOutLi.addEventListener("click", function () {
     localStorage.setItem("studentData", JSON.stringify(studentData));
 });
 
-// Fetch class codes and staff data concurrently
+//  class codes and staff data concurrently
 for (const code of staffClassCodeList) {
 let option = document.createElement("option");
 option.value = code;

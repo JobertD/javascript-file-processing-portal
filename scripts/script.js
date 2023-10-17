@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Load and parse the JSON file containing staff data
-  fetch("/data/classCodes.json")
+  fetch("../data/classCodes.json")
   .then((response) => response.json())
   .then((data) => {
     console.log("Parsing classCodes.json");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   .catch((error) => {
     console.log("Failed to parse classCodes.json: ", error);
   });
-  fetch("/data/staff.json")
+  fetch("../data/staff.json")
     .then((response) => response.json())
     .then((data) => {
       const loginForm = document.querySelector("form");
