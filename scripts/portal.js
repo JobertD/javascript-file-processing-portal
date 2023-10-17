@@ -1,6 +1,7 @@
 let loggedInText = document.querySelector("p.logged-in-as-text");
 let logOutLi = document.querySelector("li#log-out-li");
 let manageGradesLink = document.querySelector("a#grades");
+let dropDownAddStudents = document.querySelector("section#add-students-content select");
 let dropDownClassGrades = document.querySelector("section#manage-grades-content select");
 let dropDownClassRemoveStudents = document.querySelector("section#remove-students-content select");
 let manageGradesSection = document.querySelector("section#manage-grades-content");
@@ -25,7 +26,7 @@ logOutLi.addEventListener("click", function () {
     // When the user logs out, remove references of the user's name in local storage.
     localStorage.removeItem("userFirstName");
     localStorage.removeItem("userLastName");
-    localStorage.removeItem("staffId"); // Change "userId" to "staffId"
+    localStorage.removeItem("staffId");
     localStorage.removeItem("${id}ClassCodes");
     localStorage.removeItem("classCodes");
 
@@ -35,20 +36,29 @@ logOutLi.addEventListener("click", function () {
 
 // Fetch class codes and staff data concurrently
 for (const code of staffClassCodeList) {
-let option = document.createElement("option");
-option.value = code;
-option.textContent = `${code}: ${allClassCodeList[code]}`;
-dropDownClassRemoveStudents.appendChild(option);
-console.log(`Adding ${code} to dropdown`);
+    let option = document.createElement("option");
+    option.value = code;
+    option.textContent = `${code}: ${allClassCodeList[code]}`;
+    dropDownClassRemoveStudents.appendChild(option);
+    console.log(`Adding ${code} to dropdown`);
 }
 
 for (const code of staffClassCodeList) {
-let option = document.createElement("option");
-option.value = code;
-option.textContent = `${code}: ${allClassCodeList[code]}`;
-dropDownClassGrades.appendChild(option);
-console.log(`Adding ${code} to dropdown`);
+    let option = document.createElement("option");
+    option.value = code;
+    option.textContent = `${code}: ${allClassCodeList[code]}`;
+    dropDownClassGrades.appendChild(option);
+    console.log(`Adding ${code} to dropdown`);
 }
+
+for (const code of staffClassCodeList) {
+    let option = document.createElement("option");
+    option.value = code;
+    option.textContent = `${code}: ${allClassCodeList[code]}`;
+    dropDownAddStudents.appendChild(option);
+    console.log(`Adding ${code} to dropdown`);
+    }
+
 
 // Event when in the Remove Students page.
 removeStudentsLink.addEventListener("click", function() {
@@ -200,7 +210,38 @@ manageGradesLink.addEventListener("click", function() {
     });
 });
 
+addStudentsLink.addEventListener("click", function(){
+     // Hide the other sections.
+     addStudentsSection.style.display = "block";
+     manageGradesSection.style.display = "none";
+     removeStudentsSection.style.display = "none";
 
+     let students = [];
+        for (const student of studentData) {
+            students.push(student);
+        }
+        students.sort((a, b) => {
+            let fullName1 = `${a.lName}, ${a.fName}`;
+            let fullName2 = `${b.lName}, ${b.fName}`;
+            return fullName1.localeCompare(fullName2);
+        });
+        console.log(students);
+
+        // TODO: ADD CODE FOR ADDITION AND DELETION OF STUDENTS IN STUDENT DATA.
+        // Set the cells for each student row and give them the grades if they are already set.
+        for (const student of students) {
+                const newRow = tbody.insertRow(-1);
+                const cell1 = newRow.insertCell(0);
+                const fullName = `${student.lName}, ${student.fName}`;
+                cell1.textContent = fullName;
+
+                const cell2 = newRow.insertCell(1);
+                let cell2Input = document.createElement("input");
+                cell2Input.type= "checkbox";
+                cell2.appendChild(cell2Input);
+        }
+})
 
 
 manageGradesLink.dispatchEvent(new Event("click"));
+
