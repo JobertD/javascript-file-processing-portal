@@ -3,6 +3,7 @@ let logOutLi = document.querySelector("li#log-out-li");
 let manageGradesLink = document.querySelector("a#grades");
 let dropDownClassGrades = document.querySelector("section#manage-grades-content select");
 let dropDownClassRemoveStudents = document.querySelector("section#remove-students-content select");
+let dropDownClassAddStudents = document.querySelector("section#add-students-content select")
 let manageGradesSection = document.querySelector("section#manage-grades-content");
 let removeStudentsSection = document.querySelector("section#remove-students-content");
 let removeStudentsLink = document.querySelector("a#remove-students");
@@ -50,13 +51,44 @@ dropDownClassGrades.appendChild(option);
 console.log(`Adding ${code} to dropdown`);
 }
 
+addStudentsLink.addEventListener("click", function() {
+    //Hide the other sections
+    addStudentsSection.style.display = "block";
+    removeStudentsSection.style.display = "none";
+    manageGradesSection.style.display = "none";
+
+    // Event listener for dropdown selection
+    dropDownClassAddStudents.addEventListener("change", function() {
+        const selectedClassCode = dropDownClassAddStudents.value;
+
+        // Clear existing table rows
+        const tbody = document.querySelector("section#add-students-content .student-table tbody");
+        while (tbody.hasChildNodes()) {
+            tbody.removeChild(tbody.firstChild);
+        }
+
+        // Create an array of students and sort them via alphabetical order.
+        let students = [];
+        for (const student of studentData) {
+            if (student.classCode === selectedClassCode) {
+                students.push(student);
+            }
+        }
+        students.sort((a, b) => {
+            let fullName1 = `${a.lName}, ${a.fName}`;
+            let fullName2 = `${b.lName}, ${b.fName}`;
+            return fullName1.localeCompare(fullName2);
+        });
+        console.log(students);
+    })
+});
+
 // Event when in the Remove Students page.
 removeStudentsLink.addEventListener("click", function() {
     // Hide the other sections.
     removeStudentsSection.style.display = "block";
     addStudentsSection.style.display = "none";
     manageGradesSection.style.display = "none";
-
 
     // Event listener for dropdown selection
     dropDownClassRemoveStudents.addEventListener("change", function() {
@@ -83,6 +115,8 @@ removeStudentsLink.addEventListener("click", function() {
         console.log(students);
 
         // TODO: ADD CODE FOR ADDITION AND DELETION OF STUDENTS IN STUDENT DATA.
+        
+
         // Set the cells for each student row and give them the grades if they are already set.
         for (const student of students) {
                 const newRow = tbody.insertRow(-1);
@@ -96,8 +130,19 @@ removeStudentsLink.addEventListener("click", function() {
                 cell2.appendChild(cell2Input);
         }
 
-    });
+        document.querySelector("section#remove-students-content .student-table tbody").addEventListener("change", function(event) {
+            const removeStudentsButton = document.getElementById("remove-students-button");
+            const checkboxes = document.querySelectorAll("section#remove-students-content .student-table tbody input[type='checkbox']");
+            const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+        
+            if (checkedCheckboxes.length > 0) {
+                removeStudentsButton.disabled = false;
+            } else {
+                removeStudentsButton.disabled = true;
+            }
 
+        })
+    });
 });
   
 // Event when in the Manage Grades page.
@@ -199,6 +244,7 @@ manageGradesLink.addEventListener("click", function() {
         }
     });
 });
+
 
 
 
