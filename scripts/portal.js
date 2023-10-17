@@ -4,6 +4,7 @@ let manageGradesLink = document.querySelector("a#grades");
 let dropDownAddStudents = document.querySelector("section#add-students-content select");
 let dropDownClassGrades = document.querySelector("section#manage-grades-content select");
 let dropDownClassRemoveStudents = document.querySelector("section#remove-students-content select");
+let dropDownClassAddStudents = document.querySelector("section#add-students-content select")
 let manageGradesSection = document.querySelector("section#manage-grades-content");
 let removeStudentsSection = document.querySelector("section#remove-students-content");
 let removeStudentsLink = document.querySelector("a#remove-students");
@@ -34,7 +35,7 @@ logOutLi.addEventListener("click", function () {
     localStorage.setItem("studentData", JSON.stringify(studentData));
 });
 
-// Fetch class codes and staff data concurrently
+//  class codes and staff data concurrently
 for (const code of staffClassCodeList) {
     let option = document.createElement("option");
     option.value = code;
@@ -59,14 +60,12 @@ for (const code of staffClassCodeList) {
     console.log(`Adding ${code} to dropdown`);
     }
 
-
 // Event when in the Remove Students page.
 removeStudentsLink.addEventListener("click", function() {
     // Hide the other sections.
     removeStudentsSection.style.display = "block";
     addStudentsSection.style.display = "none";
     manageGradesSection.style.display = "none";
-
 
     // Event listener for dropdown selection
     dropDownClassRemoveStudents.addEventListener("change", function() {
@@ -93,6 +92,8 @@ removeStudentsLink.addEventListener("click", function() {
         console.log(students);
 
         // TODO: ADD CODE FOR ADDITION AND DELETION OF STUDENTS IN STUDENT DATA.
+        
+
         // Set the cells for each student row and give them the grades if they are already set.
         for (const student of students) {
                 const newRow = tbody.insertRow(-1);
@@ -106,8 +107,19 @@ removeStudentsLink.addEventListener("click", function() {
                 cell2.appendChild(cell2Input);
         }
 
-    });
+        document.querySelector("section#remove-students-content .student-table tbody").addEventListener("change", function(event) {
+            const removeStudentsButton = document.getElementById("remove-students-button");
+            const checkboxes = document.querySelectorAll("section#remove-students-content .student-table tbody input[type='checkbox']");
+            const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+        
+            if (checkedCheckboxes.length > 0) {
+                removeStudentsButton.disabled = false;
+            } else {
+                removeStudentsButton.disabled = true;
+            }
 
+        })
+    });
 });
   
 // Event when in the Manage Grades page.
@@ -210,11 +222,18 @@ manageGradesLink.addEventListener("click", function() {
     });
 });
 
+// Event when in the Add Students page.
 addStudentsLink.addEventListener("click", function(){
      // Hide the other sections.
      addStudentsSection.style.display = "block";
      manageGradesSection.style.display = "none";
      removeStudentsSection.style.display = "none";
+
+    // Clear existing table rows
+        const tbody = document.querySelector("section#add-students-content .student-table tbody");
+        while (tbody.hasChildNodes()) {
+            tbody.removeChild(tbody.firstChild);
+        }
 
      let students = [];
         for (const student of studentData) {
@@ -227,8 +246,6 @@ addStudentsLink.addEventListener("click", function(){
         });
         console.log(students);
 
-        // TODO: ADD CODE FOR ADDITION AND DELETION OF STUDENTS IN STUDENT DATA.
-        // Set the cells for each student row and give them the grades if they are already set.
         for (const student of students) {
                 const newRow = tbody.insertRow(-1);
                 const cell1 = newRow.insertCell(0);
@@ -241,6 +258,7 @@ addStudentsLink.addEventListener("click", function(){
                 cell2.appendChild(cell2Input);
         }
 })
+
 
 
 manageGradesLink.dispatchEvent(new Event("click"));

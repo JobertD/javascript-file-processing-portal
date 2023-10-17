@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/portal.css">
-    <script src="/scripts/portal.js" defer></script>
+    <script src="../scripts/portal.js" defer></script>
     <title>Teacher Portal</title>
 </head>
 <body>
@@ -29,21 +29,20 @@
         <h2>Class Code</h2>
         <select class="class-code-dropdown">
             <option disabled selected>Select a class code:</option>
-            <!-- Populate this dropdown with data from classCodes.json -->
+                <!-- Populate this dropdown with data from classCodes.json -->
         </select>
-        <button>Add Students</button>
-    <table class="student-table">
-        <thead>
-            <tr>
-                <th>Student Name</th>
-                <th>Select</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Table rows will be added dynamically here -->
-        </tbody>
-    </table>
-        </section>
+            <button>Add a Student</button>
+        <table class="student-table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Table rows will be added dynamically here -->
+            </tbody>
+        </table>
+    </section>
 
     <section id="remove-students-content">
         <h2>Class Code</h2>
@@ -51,7 +50,7 @@
             <option disabled selected>Select a class code:</option>
             <!-- Populate this dropdown with data from classCodes.json -->
         </select>
-        <button>Remove Students</button>
+        <button disabled id="remove-students-button">Remove Students</button>
     <table class="student-table">
         <thead>
             <tr>
