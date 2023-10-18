@@ -8,6 +8,7 @@ let dropDownClassAddStudents = document.querySelector("section#add-students-cont
 let manageGradesSection = document.querySelector("section#manage-grades-content");
 let removeStudentsSection = document.querySelector("section#remove-students-content");
 let removeStudentsLink = document.querySelector("a#remove-students");
+let removeStudentsButton = document.getElementById("remove-students-button");
 let addStudentsSection = document.querySelector("section#add-students-content");
 let addStudentsLink = document.querySelector("a#add-students");
 let addStudentsButton = document.querySelector("section#add-students-button");
@@ -92,9 +93,6 @@ removeStudentsLink.addEventListener("click", function() {
         });
         console.log(students);
 
-        // TODO: ADD CODE FOR ADDITION AND DELETION OF STUDENTS IN STUDENT DATA.
-        
-
         // Set the cells for each student row and give them the grades if they are already set.
         for (const student of students) {
                 const newRow = tbody.insertRow(-1);
@@ -106,19 +104,24 @@ removeStudentsLink.addEventListener("click", function() {
                 let cell2Input = document.createElement("input");
                 cell2Input.type= "checkbox";
                 cell2.appendChild(cell2Input);
+
+                cell2Input.setAttribute("data-student-name", fullName);
         }
 
         document.querySelector("section#remove-students-content .student-table tbody").addEventListener("change", function(event) {
-            const removeStudentsButton = document.getElementById("remove-students-button");
             const checkboxes = document.querySelectorAll("section#remove-students-content .student-table tbody input[type='checkbox']");
             const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
         
             if (checkedCheckboxes.length > 0) {
+                const studentNames = checkedCheckboxes.map(checkbox => checkbox.getAttribute("data-student-name"));
+                console.log("Selected student names:", studentNames);
                 removeStudentsButton.disabled = false;
             } else {
                 removeStudentsButton.disabled = true;
             }
-
+            removeStudentsButton.addEventListener("click", function() {
+                //TODO: Remove selected values 'studentNames'
+            })
         })
     });
 });
