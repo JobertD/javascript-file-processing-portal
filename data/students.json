@@ -375,5 +375,90 @@
       "lName": "Brown",
       "classCode": "9385"
     }
+    {
+      "students": [
+        {
+          "fName": "Emma",
+          "lName": "Johnson"
+        },
+        {
+          "fName": "Liam",
+          "lName": "Smith"
+        },
+        {
+          "fName": "Olivia",
+          "lName": "Brown"
+        },
+        {
+          "fName": "Noah",
+          "lName": "Wilson"
+        },
+        {
+          "fName": "Ava",
+          "lName": "Jones"
+        },
+        {
+          "fName": "Isabella",
+          "lName": "Davis"
+        },
+        {
+          "fName": "Sophia",
+          "lName": "Taylor"
+        },
+        {
+          "fName": "Mia",
+          "lName": "Moore"
+        },
+        {
+          "fName": "Charlotte",
+          "lName": "Anderson"
+        },
+        {
+          "fName": "Amelia",
+          "lName": "White"
+        },
+        {
+          "fName": "James",
+          "lName": "Jackson"
+        },
+        {
+          "fName": "Benjamin",
+          "lName": "Martinez"
+        },
+        {
+          "fName": "Elijah",
+          "lName": "Hernandez"
+        },
+        {
+          "fName": "Lucas",
+          "lName": "Garcia"
+        },
+        {
+          "fName": "Henry",
+          "lName": "Brown"
+        },
+        {
+          "fName": "Alexander",
+          "lName": "Hall"
+        },
+        {
+          "fName": "Sebastian",
+          "lName": "Walker"
+        },
+        {
+          "fName": "Ella",
+          "lName": "Turner"
+        },
+        {
+          "fName": "Lily",
+          "lName": "Stewart"
+        },
+        {
+          "fName": "Grace",
+          "lName": "Parker"
+        }
+      ]
+    }
+    
   ]
 }
