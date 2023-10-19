@@ -211,8 +211,7 @@ manageGradesLink.addEventListener("click", function() {
                     if ((prelimGrade !== "" && prelimGrade >= 65 && prelimGrade <= 99) &&
                     (midtermGrade !== "" && midtermGrade >= 65 && midtermGrade <= 99) &&
                     (finalGrade !== "" && finalGrade >= 65 && finalGrade <= 99)) {
-                        //TODO: VERIFY FORMULA FOR FINAL GRADE
-                        let final = Math.floor((prelimGrade + midtermGrade + finalGrade) / 3);
+                        let final = Math.floor((prelimGrade*.3 + midtermGrade*.3 + finalGrade*.4));
                         student.final = final;
                         cell5.textContent = final;
                     }
