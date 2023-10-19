@@ -12,6 +12,7 @@ let removeStudentsButton = document.getElementById("remove-students-button");
 let studentNames;
 let addStudentsSection = document.querySelector("section#add-students-content");
 let addStudentsLink = document.querySelector("a#add-students");
+let addStudentsButton = document.querySelector("section#add-students-button");
 
 
 
@@ -128,7 +129,7 @@ removeStudentsLink.addEventListener("click", function() {
     });
 });
   
-// Event when in the Manage Grades page.
+// Event when in the Manage Grades page
 manageGradesLink.addEventListener("click", function() {
     // Hide the other sections.
     manageGradesSection.style.display = "block";
@@ -228,44 +229,49 @@ manageGradesLink.addEventListener("click", function() {
     });
 });
 
-// Event when in the Add Students page.
-addStudentsLink.addEventListener("click", function(){
-     // Hide the other sections.
-     addStudentsSection.style.display = "block";
-     manageGradesSection.style.display = "none";
-     removeStudentsSection.style.display = "none";
-
+addStudentsLink.addEventListener("click", function () {
+    // Hide the other sections
+    addStudentsSection.style.display = "block";
+    manageGradesSection.style.display = "none";
+    removeStudentsSection.style.display = "none";
+  
     // Clear existing table rows
-        const tbody = document.querySelector("section#add-students-content .student-table tbody");
-        while (tbody.hasChildNodes()) {
-            tbody.removeChild(tbody.firstChild);
-        }
+    const tbody = document.querySelector("section#add-students-content .student-table tbody");
+    while (tbody.hasChildNodes()) {
+      tbody.removeChild(tbody.firstChild);
+    }
+  
+    let students = studentData; 
+    const studentsWithNoClassCode = studentData.filter(students => !students.classCode || students.classCode.trim() === "");
+  
+    // Create an array of students in alphabetical order
+    studentsWithNoClassCode.sort((a, b) => {
+      let fullName1 = `${a.lName}, ${a.fName}`;
+      let fullName2 = `${b.lName}, ${b.fName}`;
+      return fullName1.localeCompare(fullName2);
+    });
+    console.log(studentsWithNoClassCode);
+  
+    for (const student of studentsWithNoClassCode) {
+      const newRow = tbody.insertRow(-1);
+      const cell1 = newRow.insertCell(0);
+      const fullName = `${student.lName}, ${student.fName}`;
+      cell1.textContent = fullName;
+  
+      const cell2 = newRow.insertCell(1);
+      let cell2Input = document.createElement("input");
+      cell2Input.type = "checkbox";
+      cell2.appendChild(cell2Input);
+    }
+  
+    const addStudentsButton = document.getElementById("add-students-button"); 
+    if (addStudentsButton) {
+      addStudentsButton.addEventListener("click", function () {
+        console.log("Add students button clicked");
 
-     let students = [];
-        for (const student of studentData) {
-            students.push(student);
-        }
-        students.sort((a, b) => {
-            let fullName1 = `${a.lName}, ${a.fName}`;
-            let fullName2 = `${b.lName}, ${b.fName}`;
-            return fullName1.localeCompare(fullName2);
-        });
-        console.log(students);
-
-        for (const student of students) {
-                const newRow = tbody.insertRow(-1);
-                const cell1 = newRow.insertCell(0);
-                const fullName = `${student.lName}, ${student.fName}`;
-                cell1.textContent = fullName;
-
-                const cell2 = newRow.insertCell(1);
-                let cell2Input = document.createElement("input");
-                cell2Input.type= "checkbox";
-                cell2.appendChild(cell2Input);
-        }
-})
-
-
-
-manageGradesLink.dispatchEvent(new Event("click"));
+      });
+    }
+  });
+  
+  manageGradesLink.dispatchEvent(new Event("click"));
 
