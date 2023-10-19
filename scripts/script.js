@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Load and parse the JSON file containing all student data,
     // but only if it does not exist in local storage yet.
-    if (!localStorage.getItem("studentData")) {
+    
       fetch("../data/students.json")
       .then((response) => response.json())
       .then((data) => {
@@ -66,6 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => {
         console.log("Failed to parse classCodes.json: ", error);
       })
-  }
+  
 
 });
