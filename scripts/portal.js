@@ -1,5 +1,6 @@
 let loggedInText = document.querySelector("p.logged-in-as-text");
 let logOutLi = document.querySelector("li#log-out-li");
+let selectedClassCode;
 let manageGradesLink = document.querySelector("a#grades");
 let dropDownAddStudents = document.querySelector("section#add-students-content select");
 let dropDownClassGrades = document.querySelector("section#manage-grades-content select");
@@ -72,7 +73,7 @@ removeStudentsLink.addEventListener("click", function() {
 
     // Event listener for dropdown selection
     dropDownClassRemoveStudents.addEventListener("change", function() {
-        const selectedClassCode = dropDownClassRemoveStudents.value;
+        selectedClassCode = dropDownClassRemoveStudents.value;
 
         // Clear existing table rows
         const tbody = document.querySelector("section#remove-students-content .student-table tbody");
@@ -120,12 +121,18 @@ removeStudentsLink.addEventListener("click", function() {
             } else {
                 removeStudentsButton.disabled = true;
             }
-            removeStudentsButton.addEventListener("click", function() {
-                studentData = studentData.filter(student => !studentNames.includes(`${student.lName}, ${student.fName}`));
-                console.log(studentData)
-                //TODO: Display updated students
-            })
-        })
+        });
+
+        removeStudentsButton.addEventListener("click", function() {
+            if (selectedClassCode) {
+                studentData = studentData.filter(student => {
+                    return !(studentNames.includes(`${student.lName}, ${student.fName}`) && student.classCode === selectedClassCode);
+                });
+                console.log(studentData);
+                localStorage.setItem("studentData", JSON.stringify(studentData));
+                console.log(studentData);
+            }
+        });
     });
 });
   
