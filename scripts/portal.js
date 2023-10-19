@@ -73,7 +73,7 @@ removeStudentsLink.addEventListener("click", function() {
 
     // Event listener for dropdown selection
     dropDownClassRemoveStudents.addEventListener("change", function() {
-        selectedClassCode = dropDownClassRemoveStudents.value;
+    selectedClassCode = dropDownClassRemoveStudents.value;
 
         // Clear existing table rows
         const tbody = document.querySelector("section#remove-students-content .student-table tbody");
@@ -132,9 +132,8 @@ removeStudentsLink.addEventListener("click", function() {
                     return student;
                 });
                 localStorage.setItem("studentData", JSON.stringify(studentData));
-                console.log(studentData);
-                removeStudentsLink.dispatchEvent(new Event("click"));
-                //TODO: dispatch properly
+                console.log("studentData");
+                dropDownClassRemoveStudents.dispatchEvent(new Event("change"));
             }
         });
         
