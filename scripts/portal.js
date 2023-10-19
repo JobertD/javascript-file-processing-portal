@@ -125,14 +125,19 @@ removeStudentsLink.addEventListener("click", function() {
 
         removeStudentsButton.addEventListener("click", function() {
             if (selectedClassCode) {
-                studentData = studentData.filter(student => {
-                    return !(studentNames.includes(`${student.lName}, ${student.fName}`) && student.classCode === selectedClassCode);
+                studentData = studentData.map(student => {
+                    if (studentNames.includes(`${student.lName}, ${student.fName}`) && student.classCode === selectedClassCode) {
+                        delete student.classCode;
+                    }
+                    return student;
                 });
-                console.log(studentData);
                 localStorage.setItem("studentData", JSON.stringify(studentData));
                 console.log(studentData);
+                removeStudentsLink.dispatchEvent(new Event("click"));
+                //TODO: dispatch properly
             }
         });
+        
     });
 });
   
