@@ -9,6 +9,7 @@ let manageGradesSection = document.querySelector("section#manage-grades-content"
 let removeStudentsSection = document.querySelector("section#remove-students-content");
 let removeStudentsLink = document.querySelector("a#remove-students");
 let removeStudentsButton = document.getElementById("remove-students-button");
+let studentNames;
 let addStudentsSection = document.querySelector("section#add-students-content");
 let addStudentsLink = document.querySelector("a#add-students");
 
@@ -112,14 +113,16 @@ removeStudentsLink.addEventListener("click", function() {
             const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
         
             if (checkedCheckboxes.length > 0) {
-                const studentNames = checkedCheckboxes.map(checkbox => checkbox.getAttribute("data-student-name"));
+                studentNames = checkedCheckboxes.map(checkbox => checkbox.getAttribute("data-student-name"));
                 console.log("Selected student names:", studentNames);
                 removeStudentsButton.disabled = false;
             } else {
                 removeStudentsButton.disabled = true;
             }
             removeStudentsButton.addEventListener("click", function() {
-                //TODO: Remove selected values 'studentNames'
+                studentData = studentData.filter(student => !studentNames.includes(`${student.lName}, ${student.fName}`));
+                console.log(studentData)
+                //TODO: Display updated students
             })
         })
     });
