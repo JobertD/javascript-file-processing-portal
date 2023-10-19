@@ -56,7 +56,7 @@ for (const code of staffClassCodeList) {
     console.log(`Adding ${code} to dropdown`);
 }
 
-for (const code of staffClassCodeList) {
+for (const code in allClassCodeList) {
     let option = document.createElement("option");
     option.value = code;
     option.textContent = `${code}: ${allClassCodeList[code]}`;
@@ -218,8 +218,7 @@ manageGradesLink.addEventListener("click", function() {
                     if ((prelimGrade !== "" && prelimGrade >= 65 && prelimGrade <= 99) &&
                     (midtermGrade !== "" && midtermGrade >= 65 && midtermGrade <= 99) &&
                     (finalGrade !== "" && finalGrade >= 65 && finalGrade <= 99)) {
-                        //TODO: VERIFY FORMULA FOR FINAL GRADE
-                        let final = Math.floor((prelimGrade + midtermGrade + finalGrade) / 3);
+                        let final = Math.floor((prelimGrade*.3 + midtermGrade*.3 + finalGrade*.4));
                         student.final = final;
                         cell5.textContent = final;
                     }
@@ -248,7 +247,6 @@ addStudentsLink.addEventListener("click", function () {
       tbody.removeChild(tbody.firstChild);
     }
   
-    let students = studentData; 
     const studentsWithNoClassCode = studentData.filter(students => !students.classCode || students.classCode.trim() === "");
   
     // Create an array of students in alphabetical order
@@ -269,15 +267,36 @@ addStudentsLink.addEventListener("click", function () {
       let cell2Input = document.createElement("input");
       cell2Input.type = "checkbox";
       cell2.appendChild(cell2Input);
+      cell2Input.setAttribute("student-name", fullName);
     }
   
     const addStudentsButton = document.getElementById("add-students-button"); 
-    if (addStudentsButton) {
-      addStudentsButton.addEventListener("click", function () {
-        console.log("Add students button clicked");
+    document.querySelector("section#add-students-content .student-table tbody, section#add-students-content .class-code-dropdown").addEventListener("change", function(event) {
+        const checkboxes = document.querySelectorAll("section#add-students-content .student-table tbody input[type='checkbox']");
+        const checkedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+    
+        const studentNames = checkedCheckboxes.map(checkbox => checkbox.getAttribute("student-name"));
+        if (checkedCheckboxes.length > 0 && dropDownAddStudents.value != "Select a class code:") {
+            console.log("Selected student names:", studentNames);
+            addStudentsButton.disabled = false;
+        } else {
+            addStudentsButton.disabled = true;
+        }
+        addStudentsButton.addEventListener("click", function() {
+            console.log("Add students button clicked");
+            for (const stud of studentNames){
+                nameSplit = stud.split(", ");
+                last = nameSplit[0];
+                first = nameSplit[1];
 
-      });
-    }
+                console.log(last,"|",first)
+                const target = studentData.find(student => student.lName === last && student.fName === first);
+                target.classCode = dropDownAddStudents.value;
+            }
+            localStorage.setItem("studentData", JSON.stringify(studentData));
+            addStudentsLink.dispatchEvent(new Event("click"));
+        })
+    })
   });
   
   manageGradesLink.dispatchEvent(new Event("click"));
